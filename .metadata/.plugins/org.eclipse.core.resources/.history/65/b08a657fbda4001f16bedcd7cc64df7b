@@ -1,0 +1,13 @@
+package com.learning.quiz_app.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.learning.quiz_app.repo.QuizRepo;
+
+@Service
+public class QuizService {
+
+	@Autowired
+	private QuizRepo repo;
+}

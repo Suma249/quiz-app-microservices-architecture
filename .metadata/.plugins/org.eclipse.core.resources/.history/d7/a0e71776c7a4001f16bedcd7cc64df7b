@@ -1,0 +1,5 @@
+package com.learning.quiz_app.entity;
+
+public class QuestionWrapper {
+
+}

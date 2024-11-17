@@ -1,0 +1,9 @@
+package com.learning.quiz_app.service;
+
+@Service
+public class QuizService {
+
+	public String getAllQuestions() {
+		return null;
+	}
+}

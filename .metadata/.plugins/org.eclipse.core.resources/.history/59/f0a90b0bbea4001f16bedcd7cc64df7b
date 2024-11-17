@@ -1,0 +1,34 @@
+package com.learning.quiz_app.service;
+
+import org.hibernate.mapping.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.learning.quiz_app.repo.QuestionRepo;
+import com.learning.quiz_app.repo.QuizRepo;
+import com.learning.quiz_app.entity.*;
+
+@Service
+public class QuizService {
+
+	@Autowired
+	private QuizRepo quizRepo;
+	
+	@Autowired
+	private QuestionRepo questionRepo;
+
+	public ResponseEntity<String> createQuiz(String category, String numOfQuestions, String quizTitle) {
+		List<QuestionEntity> questions=(List) questionRepo.findRandomQuestionsByCategory(category, numOfQuestions);
+		
+		QuizEntity quiz=new QuizEntity();
+		quiz.setQuizTitle(quizTitle);
+		quiz.setQuestions(questions);
+		
+		quizRepo.save(quiz);
+		return new ResponseEntity<>("success", HttpStatus.CREATED);
+	}
+	
+	
+}

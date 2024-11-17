@@ -1,0 +1,25 @@
+package com.learning.quiz_app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.learning.quiz_app.entity.QuestionEntity;
+import com.learning.quiz_app.repo.QuizRepo;
+
+@Service
+public class QuizService {
+
+	@Autowired
+	private QuizRepo repo;
+	
+	public List<QuestionEntity> getAllQuestions() {
+		return repo.findAll();
+	}
+
+	public List<QuestionEntity> gethQuestionsByCategory(String category) {
+		// TODO Auto-generated method stub
+		return repo.findByCategory(category);
+	}
+}

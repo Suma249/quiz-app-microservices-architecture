@@ -1,0 +1,26 @@
+package com.learning.quiz_app.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.learning.quiz_app.entity.QuestionEntity;
+import com.learning.quiz_app.service.QuizService;
+
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+@RestController
+@RequestMapping("/question")
+public class QiuestionsController {
+
+	@Autowired
+	private final QuizService service;
+	
+	@GetMapping("/allQuestions")
+	public List<QuestionEntity> getAllQuestions() {
+		return service.getAllQuestions();
+	}
+}

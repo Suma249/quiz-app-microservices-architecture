@@ -1,0 +1,15 @@
+package com.learning.quiz_app.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.learning.quiz_app.entity.QuestionEntity;
+
+@Service
+public class QuizService {
+
+	public List<QuestionEntity> getAllQuestions() {
+		return null;
+	}
+}

@@ -1,0 +1,13 @@
+package com.learning.quiz_app.repo;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.learning.quiz_app.entity.QuestionEntity;
+
+public interface QuizRepo extends JpaRepository<QuestionEntity, Integer> {
+
+	List<QuestionEntity> findByCategory(String category);
+
+}

@@ -1,0 +1,17 @@
+package com.learning.quiz_app.repo;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.learning.quiz_app.entity.QuestionEntity;
+
+public interface QuestionRepo extends JpaRepository<QuestionEntity, Integer> {
+
+	List<QuestionEntity> findByCategory(String category);
+
+	@Query(value="SELECT * FROM questions q Where q.category=:category ORDER BY RANDOM() LIMIT :numberOfQuestions", nativeQuery=true)
+   List<QuestionEntity> findRandomQuestionsByCategory(String category,String numOfQuestions);
+
+}
