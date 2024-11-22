@@ -16,7 +16,7 @@ import com.learning.quiz_service.entity.Response;
 public interface QuizInterfaceFeign {
 
 	@GetMapping("/question/generate")
-	public ResponseEntity<List<Integer>>getQuestionsForQuiz(@RequestParam String category, @RequestParam int i);
+	public ResponseEntity<List<Integer>>getQuestionsForQuiz(@RequestParam String category, @RequestParam int numOfQuestions);
 	
 	@PostMapping("/question/getQuestions")
 	public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(@RequestBody List<Integer> questionIds);

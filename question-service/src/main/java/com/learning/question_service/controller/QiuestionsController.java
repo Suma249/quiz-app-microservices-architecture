@@ -46,8 +46,9 @@ public class QiuestionsController {
 	}
 	
 	@GetMapping("/generate")
-	public ResponseEntity<List<Integer>>getQuestionsForQuiz(@RequestParam String category, @RequestParam int numOfQuestion){
-		return service.getQuestionsForQuiz(category, numOfQuestion);
+	public ResponseEntity<List<Integer>>getQuestionsForQuiz(@RequestParam String category, @RequestParam int numOfQuestions){
+		System.out.println("in question cservice for requiest question/generate");
+		return service.getQuestionsForQuiz(category, numOfQuestions);
 	}
 	
 	@PostMapping("/getQuestions")

@@ -45,13 +45,14 @@ public class QuestionService {
 		return new ResponseEntity<>(repo.save(question), HttpStatus.CREATED);
 	}
 
-	public ResponseEntity<List<Integer>> getQuestionsForQuiz(String category, int numOfQuestion) {
-Long numOfQuestions=Long.valueOf(numOfQuestion);
-		
+	public ResponseEntity<List<Integer>> getQuestionsForQuiz(String category, int numOfQuestions) {
+Long lnumOfQuestions=Long.valueOf(numOfQuestions);
+		System.out.println("in questions ervice");
 		List<Integer> questions=(List) repo.findRandomQuestionsByCategory(category)
 				.stream().
-				limit(numOfQuestions).
+				limit(lnumOfQuestions).
 				collect(Collectors.toList());
+		System.out.println("completed question service");
 		return new ResponseEntity<>(questions, HttpStatus.OK);
 	}
 
@@ -73,6 +74,7 @@ Long numOfQuestions=Long.valueOf(numOfQuestion);
 		int right=0;
 		for(Response res: responses) {
 			QuestionEntity q=repo.findById(res.getId()).get();
+			System.out.println("question: "+res.getId()+" right ans: "+q.getRightAns()+"user answer: "+res.getResponse());
 			if(res.getResponse().equals(q.getRightAns()))
 				right++;
 		}

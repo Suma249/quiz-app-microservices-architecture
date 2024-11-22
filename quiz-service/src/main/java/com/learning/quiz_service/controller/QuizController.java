@@ -27,6 +27,7 @@ public class QuizController {
 	
 	@PostMapping("/create")
 	public ResponseEntity<String> createQuiz(@RequestBody QuizDto quizDto){
+		System.out.println("request recieved at quiz sevice for end point quiz/create with data,\n category:"+quizDto.getCategory()+"\n number quetions: "+quizDto.getNumOfQuestions()+"\n title: "+quizDto.getTitle());
 		return service.createQuiz(quizDto.getCategory(), quizDto.getNumOfQuestions(), quizDto.getTitle());
 	}
 	
